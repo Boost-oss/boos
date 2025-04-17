@@ -23,12 +23,12 @@ jobs:
 
     - name: Build EXE
       run: |
-        pyinstaller --onefile --console main_wechat_info.py
+        pyinstaller --onefile --console pywxdump_mini/simplify_wx_info.py
 
-    - name: Compress EXE into zip
+    - name: Prepare ZIP
       run: |
         mkdir output
-        copy dist\main_wechat_info.exe output\
+        copy dist\simplify_wx_info.exe output\
         powershell Compress-Archive -Path output\* -DestinationPath wechat_info.zip
 
     - name: Upload Artifact
