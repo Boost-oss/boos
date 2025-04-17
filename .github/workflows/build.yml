@@ -25,8 +25,14 @@ jobs:
       run: |
         pyinstaller --onefile --console main_wechat_info.py
 
-    - name: Upload EXE
+    - name: Compress EXE into zip
+      run: |
+        mkdir output
+        copy dist\main_wechat_info.exe output\
+        powershell Compress-Archive -Path output\* -DestinationPath wechat_info.zip
+
+    - name: Upload Artifact
       uses: actions/upload-artifact@v3
       with:
-        name: wechat-info-exe
-        path: dist/main_wechat_info.exe
+        name: wechat_info_build
+        path: wechat_info.zip
