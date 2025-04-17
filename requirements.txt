@@ -1,3 +1,5 @@
-wheel
-pymem
+pysqlcipher3-binary==1.0.3
+pyinstaller==5.13.0
 psutil
+pymem
+wheel
